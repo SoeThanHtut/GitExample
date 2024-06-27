@@ -3,21 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Responsive Design</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .inner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        height: 30%;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 50px;
+        margin: 80px auto;
+      }
+
+      .inner-container p {
+        margin: 20px 0;
+      }
+
+      .inner-container button {
+        padding: 10px 20px;
+        border: 1px solid black;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+    </style>
   </head>
   <body>
-    <h1>This is the header</h1>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae odit eaque
-      excepturi illo dolor dignissimos, deserunt ratione non repellat laborum
-      tempore odio enim dicta tempora quaerat, doloremque magnam. Tempore,
-      facilis?
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quisquam
-      distinctio. Officia maiores atque aliquam totam consequuntur facilis, nisi
-      magnam et culpa animi ratione distinctio rerum repudiandae soluta
-      aspernatur quos?
-    </p>
+    <div class="inner-container">
+      <p id="value">a</p>
+      <button id="click">click</button>
+    </div>
   </body>
+  <script>
+    const hiragana = [
+    "a", "i", "u", "e", "o",  // Vowels
+    "ka", "ki", "ku", "ke", "ko",  // K-row
+    "sa", "shi", "su", "se", "so",  // S-row
+    "ta", "chi", "tsu", "te", "to",  // T-row
+    "na", "ni", "nu", "ne", "no",  // N-row
+    "ha", "hi", "fu", "he", "ho",  // H-row
+    "ma", "mi", "mu", "me", "mo",  // M-row
+    "ya", "yu", "yo",  // Y-row
+    "ra", "ri", "ru", "re", "ro",  // R-row
+    "wa", "wo",  // W-row
+    "n"  // N
+];
+
+
+    const getRandomValue = () => {
+      const randomIndex = Math.floor(Math.random() * hiragana.length);
+      document.querySelector("#value").innerHTML = hiragana[randomIndex];
+    };
+
+    document.querySelector("#click").addEventListener("click",getRandomValue)
+  </script>
 </html>
